@@ -1,267 +1,420 @@
-# TheJourney – Automotive Modification Media Platform
+<div align="center">
 
-A modern, high-performance automotive media platform for showcasing modified cars from automotive events.
+<br/>
 
-## Features
+# 🚗 TheJourney
 
-### Public Website
-- **Homepage** – Hero section, featured builds, car of the month, latest event builds, trending builds
-- **Car Builds** – Browse all builds with search and filters (brand, category, event)
-- **Car Detail Pages** – Full gallery (6 images), specifications, awards, related builds
-- **Event Timeline** – Browse events by year, view all cars from each event
-- **SEO Optimized** – Metadata, OpenGraph, structured data, sitemap.xml, robots.txt
+### *Platform media otomotif modern untuk memamerkan mobil modifikasi dari berbagai event.*
+### *A modern automotive media platform for showcasing modified cars from automotive events.*
 
-### Admin Dashboard
-- **Authentication** – Secure login with NextAuth
-- **Dashboard** – Overview with stats and recent builds
-- **Car Management** – CRUD operations for car builds
-- **Image Upload** – Drag & drop upload, exactly 6 images per car
-- **Event Management** – Manage automotive events
-- **Brand Management** – Manage car brands
-- **Category Management** – Manage modification categories
-- **Award Management** – Manage event awards
+<br/>
 
-## Tech Stack
+[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Prisma-336791?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![NextAuth](https://img.shields.io/badge/NextAuth.js-Auth-purple?style=flat-square)](https://next-auth.js.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-- **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
-- **Backend**: Next.js API Routes
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js
-- **Animations**: Framer Motion
-- **UI Components**: Radix UI, shadcn/ui patterns
+<br/>
 
-## Getting Started
+[🚀 Live Demo](#) · [📖 Dokumentasi](#-daftar-isi--table-of-contents) · [🐛 Report Bug](issues) · [✨ Request Feature](issues)
 
-### Prerequisites
+<br/>
 
-- Node.js 18+ 
-- PostgreSQL database
-- npm or yarn
+---
 
-### Installation
+</div>
 
-1. **Clone the repository**
-   ```bash
-   cd thejourney
-   ```
+## 📋 Daftar Isi / Table of Contents
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+- [Tentang Proyek / About](#-tentang-proyek--about)
+- [Fitur / Features](#-fitur--features)
+- [Tech Stack](#-tech-stack)
+- [Memulai / Getting Started](#-memulai--getting-started)
+- [Environment Variables](#-environment-variables)
+- [Database](#-database)
+- [Struktur Proyek / Project Structure](#-struktur-proyek--project-structure)
+- [API Endpoints](#-api-endpoints)
+- [Design & Performance](#-design--performance)
+- [Deployment](#-deployment)
+- [Kontribusi / Contributing](#-kontribusi--contributing)
+- [Lisensi / License](#-lisensi--license)
 
-3. **Set up environment variables**
-   
-   Copy `.env.example` to `.env` and update the values:
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Update the following variables:
-   ```env
-   DATABASE_URL="postgresql://user:password@localhost:5432/thejourney?schema=public"
-   NEXTAUTH_URL="http://localhost:3000"
-   NEXTAUTH_SECRET="your-secret-key-here"
-   ```
+<br/>
 
-4. **Set up the database**
-   ```bash
-   # Generate Prisma client
-   npm run db:generate
-   
-   # Push schema to database
-   npm run db:push
-   
-   # Seed initial data
-   npm run db:seed
-   ```
+---
 
-5. **Run the development server**
-   ```bash
-   npm run dev
-   ```
+## 🌟 Tentang Proyek / About
 
-6. **Open your browser**
-   
-   Navigate to [http://localhost:3000](http://localhost:3000)
+**🇮🇩 Bahasa Indonesia**
+
+**TheJourney** adalah platform media otomotif berkinerja tinggi yang dirancang untuk memamerkan mobil-mobil modifikasi dari berbagai event otomotif. Platform ini hadir dalam dua bagian utama: **website publik** untuk pengunjung yang ingin menjelajahi build mobil, dan **admin dashboard** untuk pengelolaan konten secara lengkap.
+
+**🇬🇧 English**
+
+**TheJourney** is a high-performance automotive media platform designed to showcase modified cars from automotive events. It comes in two main parts: a **public website** for visitors to explore car builds, and a full-featured **admin dashboard** for content management.
+
+<br/>
+
+---
+
+## ✨ Fitur / Features
+
+### 🌐 Public Website
+
+| Halaman / Page | Deskripsi / Description |
+|---|---|
+| 🏠 **Homepage** | Hero section, featured builds, car of the month, latest & trending builds |
+| 🚗 **Car Builds** | Browse semua build dengan pencarian & filter (brand, kategori, event) / Browse all builds with search & filters |
+| 📄 **Car Detail** | Full gallery (6 foto), spesifikasi, penghargaan, related builds / Full gallery (6 images), specs, awards, related builds |
+| 📅 **Event Timeline** | Jelajahi event berdasarkan tahun, lihat semua mobil per event / Browse events by year, view all cars per event |
+| 🔍 **SEO Optimized** | Metadata, OpenGraph, structured data, sitemap.xml, robots.txt |
+
+### 🔧 Admin Dashboard
+
+| Fitur / Feature | Deskripsi / Description |
+|---|---|
+| 🔐 **Authentication** | Login aman dengan NextAuth / Secure login with NextAuth |
+| 📊 **Dashboard** | Statistik overview & recent builds / Overview stats & recent builds |
+| 🚗 **Car Management** | CRUD operasi untuk semua build / CRUD operations for all car builds |
+| 🖼️ **Image Upload** | Drag & drop upload, tepat 6 gambar per mobil / Drag & drop, exactly 6 images per car |
+| 📅 **Event Management** | Kelola event otomotif / Manage automotive events |
+| 🏷️ **Brand Management** | Kelola merek mobil / Manage car brands |
+| 🗂️ **Category Management** | Kelola kategori modifikasi / Manage modification categories |
+| 🏆 **Award Management** | Kelola penghargaan event / Manage event awards |
+
+<br/>
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Teknologi / Technology |
+|---|---|
+| **Framework** | [Next.js 14](https://nextjs.org/) (App Router) |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Database** | [PostgreSQL](https://www.postgresql.org/) + [Prisma ORM](https://www.prisma.io/) |
+| **Authentication** | [NextAuth.js](https://next-auth.js.org/) |
+| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
+| **UI Components** | [Radix UI](https://www.radix-ui.com/), shadcn/ui |
+| **Fonts** | Inter + Oswald |
+| **Hosting (recommended)** | [Vercel](https://vercel.com/) + [Railway](https://railway.app/) / [Supabase](https://supabase.com/) |
+
+<br/>
+
+---
+
+## 🚀 Memulai / Getting Started
+
+### Prasyarat / Prerequisites
+
+**🇮🇩** Pastikan sudah menginstal:
+
+**🇬🇧** Make sure you have installed:
+
+- [Node.js](https://nodejs.org/) `>= 18.x`
+- [PostgreSQL](https://www.postgresql.org/) database
+- [npm](https://www.npmjs.com/) atau/or [yarn](https://yarnpkg.com/)
+
+### Instalasi / Installation
+
+```bash
+# 1. Clone repository
+git clone https://github.com/Fajarlaksana/thejourney.git
+
+# 2. Masuk ke direktori / Navigate to directory
+cd thejourney
+
+# 3. Install dependencies
+npm install
+
+# 4. Setup environment variables (lihat bagian berikutnya / see next section)
+cp .env.example .env
+
+# 5. Setup database
+npm run db:generate   # Generate Prisma client
+npm run db:push       # Push schema ke database / Push schema to database
+npm run db:seed       # Seed data awal / Seed initial data
+
+# 6. Jalankan development server / Start development server
+npm run dev
+```
+
+Buka / Open [http://localhost:3000](http://localhost:3000) di browser.
 
 ### Default Admin Credentials
 
-After running the seed script:
-- **Email**: `admin@thejourney.com`
-- **Password**: `admin123`
+**🇮🇩** Setelah menjalankan seed script, gunakan kredensial berikut:
 
-**⚠️ Change the default password in production!**
+**🇬🇧** After running the seed script, use these credentials:
 
-## Project Structure
+```
+Email    : admin@thejourney.com
+Password : admin123
+```
+
+> ⚠️ **Penting / Important:** Ganti password default sebelum deploy ke production! / Change the default password before deploying to production!
+
+<br/>
+
+---
+
+## 🔑 Environment Variables
+
+Buat file `.env` dari template / Create `.env` from template:
+
+```bash
+cp .env.example .env
+```
+
+Isi variabel berikut / Fill in the following variables:
+
+```env
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/thejourney?schema=public"
+
+# NextAuth
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret-key-here"
+```
+
+<br/>
+
+---
+
+## 🗄 Database
+
+### Skema / Schema
+
+| Tabel / Table | Deskripsi / Description |
+|---|---|
+| `User` | Admin users untuk dashboard / Admin users for dashboard |
+| `Event` | Event otomotif (nama, tahun, lokasi) / Automotive events (name, year, location) |
+| `Brand` | Merek mobil (Toyota, Nissan, BMW, dll.) / Car brands |
+| `Category` | Kategori modifikasi (JDM, Stance, Track, dll.) / Modification categories |
+| `Award` | Penghargaan event (Winner, Best Engine, dll.) / Event awards |
+| `Car` | Build mobil beserta spesifikasi / Car builds with specifications |
+| `CarImage` | Gambar mobil, tepat 6 per mobil / Car images, exactly 6 per car |
+
+### Relasi / Relationships
+
+```
+Event ──────→ has many → Cars
+Car ──────→ belongs to → Brand
+Car ──────→ belongs to → Category
+Car ──────→ belongs to → Event
+Car ──────→ may have  → Award
+Car ──────→ has many  → CarImages (6 images)
+```
+
+### Scripts Database
+
+```bash
+npm run db:generate   # Generate Prisma client
+npm run db:push       # Push schema ke database / Push schema to database
+npm run db:migrate    # Jalankan migrasi / Run migrations
+npm run db:seed       # Seed data awal / Seed initial data
+```
+
+<br/>
+
+---
+
+## 📁 Struktur Proyek / Project Structure
 
 ```
 thejourney/
-├── prisma/
-│   ├── schema.prisma       # Database schema
-│   └── seed.ts             # Seed data script
-├── public/
-│   └── uploads/            # Uploaded images
-├── src/
-│   ├── app/
-│   │   ├── admin/          # Admin dashboard pages
-│   │   ├── api/            # API routes
-│   │   ├── builds/         # Public car build pages
-│   │   ├── events/         # Public event pages
-│   │   ├── layout.tsx      # Root layout
-│   │   ├── page.tsx        # Homepage
-│   │   ├── sitemap.ts      # Dynamic sitemap
-│   │   └── robots.ts       # Robots.txt
-│   ├── components/
-│   │   ├── admin/          # Admin components
-│   │   ├── builds/         # Build-related components
-│   │   ├── cars/           # Car display components
-│   │   ├── events/         # Event components
-│   │   ├── homepage/       # Homepage sections
-│   │   ├── navigation/     # Navbar & Footer
-│   │   └── ui/             # UI components
-│   └── lib/
-│       ├── prisma.ts       # Prisma client
-│       └── utils.ts        # Utility functions
-├── .env.example            # Environment variables template
-├── next.config.js          # Next.js configuration
-├── tailwind.config.js      # Tailwind CSS configuration
-├── tsconfig.json           # TypeScript configuration
-└── package.json            # Dependencies
+│
+├── 📄 next.config.js              # Next.js configuration
+├── 📄 tailwind.config.js          # Tailwind CSS configuration
+├── 📄 tsconfig.json               # TypeScript configuration
+├── 📄 package.json                # Dependencies & scripts
+├── 📄 .env.example                # Environment variables template
+│
+├── 📂 prisma/
+│   ├── schema.prisma              # Database schema (User, Event, Brand, Car, dll.)
+│   └── seed.ts                    # Seed data awal / Initial seed data
+│
+├── 📂 public/
+│   └── uploads/                   # Gambar yang diupload / Uploaded images
+│
+└── 📂 src/
+    │
+    ├── 📂 app/                    # Next.js App Router
+    │   ├── 📂 admin/              # Halaman admin dashboard / Admin dashboard pages
+    │   ├── 📂 api/                # Public API routes
+    │   ├── 📂 builds/             # Halaman publik car builds / Public car build pages
+    │   ├── 📂 events/             # Halaman publik events / Public event pages
+    │   ├── layout.tsx             # Root layout
+    │   ├── page.tsx               # Homepage
+    │   ├── sitemap.ts             # Dynamic sitemap generator
+    │   └── robots.ts              # Robots.txt generator
+    │
+    ├── 📂 components/
+    │   ├── 📂 admin/              # Komponen admin / Admin components
+    │   ├── 📂 builds/             # Komponen build / Build-related components
+    │   ├── 📂 cars/               # Komponen tampilan mobil / Car display components
+    │   ├── 📂 events/             # Komponen event / Event components
+    │   ├── 📂 homepage/           # Section homepage / Homepage sections
+    │   ├── 📂 navigation/         # Navbar & Footer
+    │   └── 📂 ui/                 # Base UI components
+    │
+    └── 📂 lib/
+        ├── prisma.ts              # Prisma client singleton
+        └── utils.ts               # Utility functions
 ```
 
-## Database Schema
+<br/>
 
-### Tables
+---
 
-- **User** – Admin users
-- **Event** – Automotive events (name, year, location)
-- **Brand** – Car brands (Toyota, Nissan, BMW, etc.)
-- **Category** – Modification categories (JDM, Stance, Track, etc.)
-- **Award** – Event awards (Winner, Best Engine, etc.)
-- **Car** – Car builds with specifications
-- **CarImage** – Images for each car (exactly 6 per car)
-
-### Relationships
-
-- Event → has many → Cars
-- Car → belongs to → Brand
-- Car → belongs to → Category
-- Car → belongs to → Event
-- Car → may have → Award
-- Car → has many → CarImages (6 images)
-
-## API Endpoints
+## 🔌 API Endpoints
 
 ### Public
-- `GET /api/cars` – List all published cars
-- `GET /api/cars/[slug]` – Get car details
-- `GET /api/events` – List all events
-- `GET /api/events/[slug]` – Get event details
+
+| Method | Endpoint | Deskripsi / Description |
+|---|---|---|
+| `GET` | `/api/cars` | Daftar semua mobil yang dipublish / List all published cars |
+| `GET` | `/api/cars/[slug]` | Detail mobil / Car details |
+| `GET` | `/api/events` | Daftar semua event / List all events |
+| `GET` | `/api/events/[slug]` | Detail event / Event details |
 
 ### Admin (Protected)
-- `POST /admin/api/cars` – Create car
-- `DELETE /admin/api/cars/[id]` – Delete car
-- `PATCH /admin/api/cars/[id]/toggle` – Toggle publish status
-- `POST /admin/api/upload` – Upload image
-- `DELETE /admin/api/events/[id]` – Delete event
-- `DELETE /admin/api/brands/[id]` – Delete brand
-- `DELETE /admin/api/categories/[id]` – Delete category
-- `DELETE /admin/api/awards/[id]` – Delete award
 
-## Design Features
+| Method | Endpoint | Deskripsi / Description |
+|---|---|---|
+| `POST` | `/admin/api/cars` | Buat build baru / Create car build |
+| `DELETE` | `/admin/api/cars/[id]` | Hapus build / Delete car build |
+| `PATCH` | `/admin/api/cars/[id]/toggle` | Toggle status publish / Toggle publish status |
+| `POST` | `/admin/api/upload` | Upload gambar / Upload image |
+| `DELETE` | `/admin/api/events/[id]` | Hapus event / Delete event |
+| `DELETE` | `/admin/api/brands/[id]` | Hapus brand / Delete brand |
+| `DELETE` | `/admin/api/categories/[id]` | Hapus kategori / Delete category |
+| `DELETE` | `/admin/api/awards/[id]` | Hapus penghargaan / Delete award |
+
+<br/>
+
+---
+
+## 🎨 Design & Performance
 
 ### Visual Style
-- Dark theme with red accent colors
-- Large automotive photography
-- Minimal UI with editorial layout
-- Strong typography (Inter + Oswald fonts)
-- Clean spacing and subtle animations
+- 🖤 Dark theme dengan aksen warna merah / Dark theme with red accent colors
+- 📸 Foto otomotif berukuran besar / Large automotive photography
+- 🗞️ Minimal UI dengan editorial layout
+- 🔤 Typography kuat: **Inter** + **Oswald**
 
-### Animations
-- Page transitions with Framer Motion
-- Hover effects on cards and buttons
+### Animasi / Animations
+- Page transitions dengan Framer Motion
+- Hover effects pada card & tombol / Hover effects on cards & buttons
 - Image reveal animations
-- Smooth scroll effects
-- Gallery transitions
+- Smooth scroll effects & gallery transitions
 
 ### Performance
 - Next.js Image optimization
-- Lazy loading for images
-- Server-side rendering
-- Static generation for car pages
+- Lazy loading untuk gambar / Lazy loading for images
+- Server-side rendering (SSR)
+- Static generation untuk halaman mobil / Static generation for car pages
 - Minimal JavaScript bundle
 
-## SEO Features
-
+### SEO
 - Next.js Metadata API
-- OpenGraph tags for social sharing
+- OpenGraph tags untuk social sharing / for social sharing
 - Twitter cards
 - Structured data (JSON-LD)
-- Semantic HTML
-- Dynamic sitemap.xml
-- Robots.txt configuration
+- Dynamic sitemap.xml & robots.txt
 
-## Security
-
-- Secure authentication with NextAuth
+### Security
+- Autentikasi aman dengan NextAuth / Secure authentication with NextAuth
 - Protected admin routes
-- Input validation
-- File upload validation
+- Input & file upload validation
 - SQL injection prevention (Prisma ORM)
 - XSS protection
 
-## Scripts
+<br/>
 
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run db:generate  # Generate Prisma client
-npm run db:push      # Push schema to database
-npm run db:migrate   # Run database migrations
-npm run db:seed      # Seed initial data
-```
+---
 
-## Production Deployment
+## 🚢 Deployment
 
-### Environment Variables
-
-Set these in your hosting platform:
+### Environment Variables (Production)
 
 ```env
 DATABASE_URL=your-production-database-url
 NEXTAUTH_URL=https://yourdomain.com
-NEXTAUTH_SECRET=your-production-secret-key
+NEXTAUTH_SECRET=your-strong-production-secret
 ```
 
-### Recommended Hosting
+### Recommended Stack
 
-- **Vercel** – Best for Next.js applications
-- **Railway** – For PostgreSQL database
-- **Supabase** – Alternative for PostgreSQL
+| Layanan / Service | Kegunaan / Purpose |
+|---|---|
+| [Vercel](https://vercel.com/) | Hosting Next.js (terbaik / best for Next.js) |
+| [Railway](https://railway.app/) | PostgreSQL database |
+| [Supabase](https://supabase.com/) | Alternatif PostgreSQL / Alternative PostgreSQL |
 
-### Build Command
+### Build & Start Commands
 
 ```bash
-npm run build
+npm run build    # Build untuk production / Build for production
+npm run start    # Jalankan production server / Start production server
 ```
 
-### Start Command
-
-```bash
-npm run start
-```
-
-## License
-
-MIT License – feel free to use this project for your automotive media platform.
-
-## Support
-
-For issues or questions, please open an issue on the repository.
+<br/>
 
 ---
 
-Built with ❤️ for car enthusiasts worldwide.
+## 📜 Scripts
+
+```bash
+npm run dev           # Development server
+npm run build         # Production build
+npm run start         # Production server
+npm run lint          # Run ESLint
+npm run db:generate   # Generate Prisma client
+npm run db:push       # Push schema ke database
+npm run db:migrate    # Run database migrations
+npm run db:seed       # Seed initial data
+```
+
+<br/>
+
+---
+
+## 🤝 Kontribusi / Contributing
+
+**🇮🇩** Kontribusi sangat disambut! Silakan buat issue atau pull request.
+
+**🇬🇧** Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+```bash
+# 1. Fork repository ini / Fork this repository
+
+# 2. Buat branch baru / Create a new branch
+git checkout -b feature/nama-fitur
+
+# 3. Commit perubahan / Commit your changes
+git commit -m "feat: tambah fitur X"
+
+# 4. Push ke branch / Push to branch
+git push origin feature/nama-fitur
+
+# 5. Buka Pull Request / Open a Pull Request
+```
+
+<br/>
+---
+
+<div align="center">
+
+Dibuat dengan ❤️ untuk para pecinta otomotif di seluruh dunia
+
+*Built with ❤️ for car enthusiasts worldwide*
+
+<br/>
+
+**TheJourney — Every build has a story.**
+
+</div>
